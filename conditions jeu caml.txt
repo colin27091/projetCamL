@@ -1,0 +1,8 @@
+Vérifier qu'une porposition est correcte
+configuration -> liste de toutes les solutions possibles
+Systeme de pts: Donner la meilleure solution
+
+https://fr.wikipedia.org/wiki/Ruzzle
+
+Type de données -> Dico - Arbre
+
