@@ -13,41 +13,10 @@
 (* let nomFic = "C:/Users/Mofid Krim/Documents/Licence Informatique/L3/Caml/Projet Caml/dictionnaire_min.txt";; *)
 let nomFic = "C:/Users/c/Documents/L3Info/Projet Caml/dictionnaire_min.txt";;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let file_to_list = fun filename -> let ch = open_in filename in
 	try
-		while true
-		do
-			input_line ch :: input_line ch
-		done
-	with End_of_file -> [];;
+		input_line ch
+	with End_of_file -> close_in and [];;
 
 
 let rec process_file = fun filename -> let ch = open_in filename in
