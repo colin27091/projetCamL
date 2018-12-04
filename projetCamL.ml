@@ -25,6 +25,7 @@ let ligne = input_line ouvrir;;
 let l = [];;
 [ligne]@l;;
 
+(* Affiche la premiere ligne du dico *)
 let ouvrir_fichier = fun 
 filename-> let ouverture = open_in filename in input_line ouverture;;
 
