@@ -26,9 +26,9 @@ let l = [];;
 [ligne]@l;;
 
 (* Affiche la premiere ligne du dico *)
-let ouvrir_fichier = fun 
-filename-> let ouverture = open_in filename in input_line ouverture;;
+let fichier_to_list = fun 
+filename-> let ouverture = open_in filename in let ch = input_line ouverture in let l=[] in ch::l;;
 
-ouvrir_fichier nomFic;;
+fichier_to_list nomFic;;
 
 
