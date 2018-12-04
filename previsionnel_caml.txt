@@ -1,0 +1,56 @@
+Mofid Colin
+
+
+.les choix définitifs de structure de données:
+	dictionnaire representé sous forme d'arbres,
+	chaque noeuds est une lettre, chaque feuille est un booleen et il existe un chemin de la racine à la feuille
+	si et seulement si la feuille est egale à true autrement dit il existe un mot composé de chaque noeuds du chemin
+	Chaque noeuds est composé de tout ces eventuels fils (suivant un mot donné) et d'une feuille indiquant si le mot existe ou non
+	exemple :
+	
+	    B
+		|
+		|
+		O
+		|\
+		| \
+		N  False (car BO n'est pas un mot existant)
+		|\
+		| \
+		J  True (car BON est un mot existant)
+		|\
+		| \
+		O  False (car BONJ n'est pas un mot existant)
+		|\
+		| \
+		U  False (car BONJO n'est pas un mot existant)
+		|\
+		| \
+		R  False (car BONJOU n'est pas un mot existant)
+		|
+		|
+		True (car BONJOUR est un mot existant)
+	
+	
+	
+.la structure générale de votre solution:
+	
+	Nous avons choisi de representer notre ruzzle sous la forme d'un graphe non orienté et non valué
+	Chaque sommet represente une case de la grille, et s'il existe une arète entre deux sommet cela signifie
+	qu'il sont voisins
+
+	
+.les tâches à réaliser:
+
+	
+	fonction file_to_list : transformer les mots du dictionnaire en liste de mot (Mofid)
+	creation du type arbre : instancier un type arbre où les noeuds sont des charactere et les feuille des boolean ( voir ci-dessus )(Colin)
+	fonction list_to_tree : transformer une liste de mot en arbre (Mofid)
+	fonction in_dico : permettant de verifier si un mot donné est dans le dico ( en parcourant l'arbre )(Colin) 
+	creation du type graphe : instancier un type de graphe où les sommet sont des lettres ( voir ci-dessus )(Mofid)
+	fonction alea_ruzzle : permet de generer aleatoirement un ruzzle sous la forme de graphe(Colin)
+	fonction parcours_graphes : parcour en largeur du graphe en comparant les mot obtenue avec in_dico, ajout dans liste si present(Mofid, Colin)
+	
+
+	
+	
