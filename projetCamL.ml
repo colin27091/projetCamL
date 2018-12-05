@@ -11,20 +11,19 @@ let rec canal_to_list = fun ch ->
 
 let file_to_list = fun filename -> let ch = open_in filename in 
 	canal_to_list ch;;
+
+
+let liste_mots = file_to_list nomFic;;
+
+let t = Sys__time();;
+
+liste_mots;;
+
+let c = Sys__time();;
 	
+let temps = c-.t;;
 	
 type arbre = Feuille of bool
 | Noeud of char*arbre*arbre ;;
-
-
-
-
-
-
-
-
-
-
-
 
 
