@@ -22,7 +22,18 @@ liste_mots;;
 let c = Sys__time();;
 	
 let temps = c-.t;;
-	
+
+(* #mot_in_list : 'a * 'a list -> bool = <fun> *)
+(* let rec mot_in_list = fun *)
+(* (a,b::l) -> a=b or mot_in_list(a,l) *)
+(* |(_,_)-> false;; *)
+
+(* mot_in_list("aaron", liste_mots);; *)
+(* #- : bool = true *)
+
+(* mot_in_list("risitas", liste_mots);; *)
+(* - : bool = false *)
+
 type arbre = Feuille of bool
 | Noeud of char*arbre*arbre ;;
 
