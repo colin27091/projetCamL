@@ -105,7 +105,7 @@ let rec mot_in_arbre = fun (Noeud(a,b,[]), str) -> ajout_mot(Noeud(a,b,[]), str)
 							if(present = [])
 								then ajout_mot(Noeud(a,b,f), str)
 								else Noeud(a,b, mot_in_arbre(hd(present), reste(str)) :: f);;
-*
+
 
 
 
