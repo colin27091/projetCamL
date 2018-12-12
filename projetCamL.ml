@@ -64,10 +64,43 @@ let start = Noeud(` `, Feuille false, []);;
 
 
 
+(*Ajout d'un mot dans un arbre existant *)
+let rec ajout_mot = fun 
+(Noeud(a,b,l), str) -> if(reste(str) = "")
+							then Noeud(a,b, Noeud(tetec(str), Feuille true, [] )::l)
+							else Noeud(a,b,ajout_mot(Noeud(tetec(str), Feuille false, []), reste(str))::l)
+|(_,_) -> failwith "Erreur";;
+(* ajout_mot : arbre * string -> arbre = <fun> *)
+
+
+let is_equals = fun
+(Noeud(a,b,l), c) -> c = a;;
+(*is_equals : arbre * char -> bool = <fun>*)
+
+let rec mot_in_arbre = fun 
+(Noeud(a,b,l), "") -> Noeud(a,Feuille true,l)
+|(Noeud(a,b, []), str) -> ajout_mot(Noeud(a,b,[]), str)
+|(Noeud(a,b,(n :: l)), str) -> if (is_equals(n,tetec(str)))
+								then Noeud(a,b,(mot_in_arbre(n,reste(str))) :: l)
+								else ajout_mot(Noeud(a,b,(n::l)), str)
+|(_,_) -> failwith "Erreur";;
+(* char_present : arbre * string -> arbre = <fun> *)
+
+
+let rec dico_arbre = fun 
+[] -> Noeud(` `, Feuille false, [])
+|(a :: l) -> ch
+
+
+
+
+
+
+
+
 
 
 (* Verifie si une lettre est deja le fils d'un arbre*)	
-
 let rec char_in_arbre_list = fun ([], c) -> false
 | ((Noeud(a,b,f) :: l), c) -> if(a = c)
 								then true
@@ -83,13 +116,7 @@ let rec char_in_arbre = fun (Noeud(_,_,l),c) -> char_in_arbre_list(l, c)
 (*Fin de verification*)
 
 
-(*Ajout d'un mot dans un arbre existant *)
-let rec ajout_mot = fun 
-(Noeud(a,b,l), str) -> if(reste(str) = "")
-							then Noeud(a,b, Noeud(tetec(str), Feuille true, [] )::l)
-							else Noeud(a,b,ajout_mot(Noeud(tetec(str), Feuille false, []), reste(str))::l)
-|(_,_) -> failwith "Erreur";;
-(* ajout_mot : arbre * string -> arbre = <fun> *)
+
 
 
 let rec char_in_fils = fun (Noeud(a,b,fils), c) -> 
