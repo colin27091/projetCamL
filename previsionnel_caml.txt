@@ -9,12 +9,12 @@ Mofid Colin
 	exemple :
 	
 	    B
-		|
-		|
-		O
 		|\
 		| \
-		N  False (car BO n'est pas un mot existant)
+		O  False
+	   /|\
+	  /	| \
+	 P	N  False (car BO n'est pas un mot existant)
 		|\
 		| \
 		J  True (car BON est un mot existant)
