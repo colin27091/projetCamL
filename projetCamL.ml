@@ -39,7 +39,7 @@ let rec canal_to_list = fun ch ->
 let file_to_list = fun filename -> let ch = open_in filename in 
 	canal_to_list ch;;
 
-file_to_list nomFic;;
+let dico_list = file_to_list nomFic;;
 (*fin extraction*)
 
 (*definission du type arbre pour la representation de la liste*)
@@ -84,12 +84,50 @@ let rec mot_in_arbre = fun
 								then Noeud(a,b,(mot_in_arbre(n,reste(str))) :: l)
 								else ajout_mot(Noeud(a,b,(n::l)), str)
 |(_,_) -> failwith "Erreur";;
-(* char_present : arbre * string -> arbre = <fun> *)
+(* mot_in_arbre : arbre * string -> arbre = <fun> *)
 
 
 let rec dico_arbre = fun 
 [] -> Noeud(` `, Feuille false, [])
-|(a :: l) -> ch
+|(a :: l) -> mot_in_arbre(dico_arbre(l), a);;
+(* dico_arbre : string list -> arbre = <fun> *)
+
+
+
+
+
+
+(****************************************************************)
+let t = Sys__time();;
+
+dico_arbre(dico_list);;
+
+let c = Sys__time();;
+	
+let temps = c-.t;;
+
+(*****************************************************)
+let t = Sys__time();;
+
+dico_list;;
+
+let c = Sys__time();;
+	
+let temps = c-.t;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -179,15 +217,7 @@ Graphe([(`a`, [`b`]); (`b`, [`a`;`c`])]);;
 
 
 
-let liste_mots = file_to_list nomFic;;
 
-let t = Sys__time();;
-
-liste_mots;;
-
-let c = Sys__time();;
-	
-let temps = c-.t;;
 
 
 
